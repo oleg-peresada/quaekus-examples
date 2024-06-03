@@ -1,0 +1,47 @@
+user-roles: user
+
+#amqp-host: "localhost"
+
+#amqp-host: localhost
+#amqp-port: 5672
+#amqp-username: artemis
+#amqp-password: artemis
+
+artemis:
+  username: artemis
+  password: artemis
+
+mp:
+  messaging:
+    connector:
+      smallrye-jms:
+        connection-factory-name: factory-test
+    incoming:
+      price:
+        connector: smallrye-jms
+        destination: INT.DELIVERY
+        delivery-mode: persistent
+        concurrency: 5
+        failure-strategy: modified-failed
+    outgoing:
+      prices:
+        connector: smallrye-jms
+        delivery-mode: persistent
+        destination: INT.DELIVERY
+        connection-factory-name: factory-test
+
+quarkus:
+  oidc:
+    auth-server-url: http://localhost:8180/realms/quarkus
+    client-id: backend-service
+    credentials:
+      secret: secret
+  redis:
+    hosts: localhost:6379
+  shutdown:
+    timeout: 30s
+    delay: 10s
+  analytics:
+    disabled: false
+  banner:
+    enabled: false
