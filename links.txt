@@ -1,0 +1,4 @@
+Некоторые ссылки на чтение
+
+1. https://www.reactivemanifesto.org/ (The Reactive Manifesto)
+2. https://www.reactiveprinciples.org/ (Reactive Principals)
